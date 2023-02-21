@@ -27,10 +27,11 @@
                         ?>
                         There are some tasks waiting:
                         <?php
-                    }
+                    }else{
                         ?>
                         Begin by adding new task:
                         <?php
+                    }
                     
                  }
                 ?>
@@ -77,7 +78,7 @@
                     </tbody>
                 
                     <tr>
-                        <td class="fs-2 text-bg">Add more tasks:</td>
+                        <td class="fs-2 text-bg">Add tasks:</td>
                     </tr>
                     <form action="add.php" method="post">
                         <tr id="add">

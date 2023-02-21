@@ -17,7 +17,7 @@
         *{
             padding: 5px;
         }
-        .form-control{
+        input{
             color: yellow;
         }
     </style>

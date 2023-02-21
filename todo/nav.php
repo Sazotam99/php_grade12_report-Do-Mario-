@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require '../config.php';
-    $page=$_GET['page'];
-    $npage=$_GET['npage'];
-?>
+<?php require '../config.php';?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +15,7 @@
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="/todo"><button class="fs-4 btn float-end" id="home">Home</button></a><br></li>
                 <li class="nav-item"><a href="../profile"><button class="fs-4 btn float-end" id="prf"">Profile</button></a><br></li>
-                <li class="nav-item"><a href="../login"><button class="fs-4 btn float-end">Log Out</button></a><br></li>
+                <li class="nav-item"><a href="../login"><button class="fs-4 btn float-end" onclick="<?php session_destroy()?>" >Log Out</button></a><br></li>
             </ul>
         </div>
     </nav>

@@ -34,7 +34,7 @@
                                 <input type="password" name="pass" id="pass" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <input type="submit" value="Register" name="edit" class="btn btn-success">
+                                <input type="submit" value="Save Changes" name="edit" class="btn btn-success">
                             </div>
                         </form><br>
                     </div>
