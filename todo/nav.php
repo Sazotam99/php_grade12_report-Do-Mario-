@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-black">
+    <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="/todo/"><img src="https://www.pngplay.com/wp-content/uploads/9/Mario-Transparent-Background.png" alt="Logo" width="60" height="70" class="d-inline-block align-text-top">
             <br> Do-Mario</a>

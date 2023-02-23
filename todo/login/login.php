@@ -9,18 +9,19 @@
         while ($row = mysqli_fetch_assoc($query_run)) {
             // Access the data as an array
             if($pass==$row['password']){
+
                 setcookie("user", $row['fname'] , time() + (8640), "/");
                 setcookie("lname", $row['lname'] , time() + (8640), "/");
                 setcookie("uid", $row['id'] , time() + (8640), "/");
                 setcookie("email", $row['email'] , time() + (8640), "/");
                 setcookie("pass", $row['password'] , time() + (8640), "/");
                 setcookie("dob", $row['DOB'] , time() + (8640), "/");
-                $_SESSION['login']=true;
+                setcookie("login", true , time() + (8640), "/");
                 header("Location: /todo");
             }
             else{
-                $_SESSION['login']=false;
                 header("Location: /todo");
+                setcookie("login", false , time() + (8640), "/");
             }
           }
     }

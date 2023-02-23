@@ -1,5 +1,6 @@
-<head>
-<?php
+<!DOCTYPE html>
+<html>
+    <?php
     session_start();
     $server="localhost";
     $username="root";
@@ -28,3 +29,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 </body>
+</html>
+

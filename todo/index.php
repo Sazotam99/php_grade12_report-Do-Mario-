@@ -1,6 +1,6 @@
 <?php 
     include "config.php";
-    if($_SESSION['login']){
+    if($_COOKIE['login']){
         header("Location: dashboard/");
     }
     else{

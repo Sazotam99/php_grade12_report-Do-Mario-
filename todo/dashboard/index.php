@@ -8,7 +8,7 @@
 <title>Home</title>
 <body>
 <div class="container">
-        <div class="card display-5 bg-info-subtle">
+        <div class="card display-5 bg-success-subtle">
             This is Do-Mario, A general purpose To-Do list manager for everyone.
         </div>
     </div>
@@ -18,23 +18,7 @@
                 Hi, <?=$_COOKIE['user']?>
             </div>
             <div class="card-body">
-                <?php
-                 $id=$_COOKIE['uid'];
-                 $query="SELECT * FROM todos WHERE owner='$id'";
-                 $query_run=mysqli_query($conn,$query);
-                 while($row=mysqli_fetch_assoc($query_run)){
-                    if(isset($row)){
-                        ?>
-                        There are some tasks waiting:
-                        <?php
-                    }else{
-                        ?>
-                        Begin by adding new task:
-                        <?php
-                    }
-                    
-                 }
-                ?>
+                There are some tasks waiting:    
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -107,9 +91,6 @@
         });
 
     </script>
-    <?php 
-        
-        
-    ?>
+    <?php include '../footer.php'; ?>
 </body>
 </html>

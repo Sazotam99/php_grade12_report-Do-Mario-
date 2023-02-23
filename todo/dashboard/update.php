@@ -2,21 +2,13 @@
 <html lang="en">
 <?php
     require "../nav.php";
-    $_SESSION['task-id']=$_GET['id'];
-    $id=$_SESSION['task-id'];
+    setcookie("task-id",$_GET['id'],time()+8640, '/');
+    $id=$_COOKIE['task-id'];
     $query_run=mysqli_query($conn,"SELECT * FROM todos WHERE id='$id'");
     $row=mysqli_fetch_assoc($query_run);
 ?>
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit task</title>
-</head>
 <body>
-    
-
 <div class="card-body">
     <h1 class="display-1 bg-info-subtle">Edit task details:</h1><br>
     <table class="table table-striped">
@@ -38,8 +30,6 @@
         </form>
     </table>
 </div>
-<?php
-
-?>
+<?php include '../footer.php'; ?>
 </body>
 </html>

@@ -1,15 +1,5 @@
 <?php
     require '../config.php';
-    $tid=$_GET['tid'];
-    $query="UPDATE  todos SET status='done' WHERE id='$tid'";
-    $query_ins=mysqli_query($conn,$query);
-    if(!$query_ins){
-        echo mysqli_error($conn);
-    }
-    else{
-        header("Location: ../dashboard");
-    }
-
 
     if(isset($_POST['edit'])){
             
@@ -17,9 +7,11 @@
         $task=$_POST['task'];
         $iDate=$_POST['iDate'];
         $status=$_POST['status'];
-        $id=$_SESSION['task-id'];
+        $id=$_COOKIE['task-id'];
+
         $query="UPDATE  todos SET iDate='$iDate', task='$task', dDate='$dDate' WHERE id='$id'";
         $query_ins=mysqli_query($conn,$query);
+
         if(!$query_ins){
             echo mysqli_error($conn);
         }
@@ -39,6 +31,18 @@
         $query="INSERT INTO todos(owner,dDate,task,iDate,status) VALUES('$owner','$dDate','$task','$iDate','$status')";
         $query_run=mysqli_query($conn,$query);
         if(!$query_run){
+            echo mysqli_error($conn);
+        }
+        else{
+            header("Location: ../dashboard");
+        }
+    }
+
+    else{
+        $tid=$_GET['tid'];
+        $query="UPDATE  todos SET status='done' WHERE id='$tid'";
+        $query_ins=mysqli_query($conn,$query);
+        if(!$query_ins){
             echo mysqli_error($conn);
         }
         else{
