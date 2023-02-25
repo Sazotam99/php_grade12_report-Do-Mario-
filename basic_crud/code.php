@@ -2,48 +2,48 @@
 session_start();
 require 'dbcon.php';
 
-if(isset($_POST['delete_student']))
+if(isset($_POST['delete_sales']))
 {
-    $student_id = mysqli_real_escape_string($con, $_POST['delete_student']);
+    $sales_id = mysqli_real_escape_string($con, $_POST['delete_sales']);
 
-    $query = "DELETE FROM students WHERE id='$student_id' ";
+    $query = "DELETE FROM sales WHERE id='$sales_id' ";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
     {
-        $_SESSION['message'] = "Student Deleted Successfully";
+        $_SESSION['message'] = "Sales Deleted Successfully";
         header("Location: index.php");
         exit(0);
     }
     else
     {
-        $_SESSION['message'] = "Student Not Deleted";
+        $_SESSION['message'] = "Sales Not Deleted";
         header("Location: index.php");
         exit(0);
     }
 }
 
-if(isset($_POST['update_student']))
+else if(isset($_POST['update_sales']))
 {
-    $student_id = mysqli_real_escape_string($con, $_POST['student_id']);
+    $sales_id = mysqli_real_escape_string($con, $_POST['sales_id']);
 
     $name = mysqli_real_escape_string($con, $_POST['name']);
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-    $phone = mysqli_real_escape_string($con, $_POST['phone']);
-    $course = mysqli_real_escape_string($con, $_POST['course']);
+    $item = mysqli_real_escape_string($con, $_POST['item']);
+    $price = mysqli_real_escape_string($con, $_POST['price']);
+    $contact = mysqli_real_escape_string($con, $_POST['contact']);
 
-    $query = "UPDATE students SET name='$name', email='$email', phone='$phone', course='$course' WHERE id='$student_id' ";
+    $query = "UPDATE sales SET cusn='$name', item='$item', price='$price', contact='$contact' WHERE id='$sales_id' ";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
     {
-        $_SESSION['message'] = "Student Updated Successfully";
+        $_SESSION['message'] = "Sales Updated Successfully";
         header("Location: index.php");
         exit(0);
     }
     else
     {
-        $_SESSION['message'] = "Student Not Updated";
+        $_SESSION['message'] = "Sales Not Updated";
         header("Location: index.php");
         exit(0);
     }
@@ -51,28 +51,38 @@ if(isset($_POST['update_student']))
 }
 
 
-if(isset($_POST['save_student']))
+else if(isset($_POST['save_sales']))
 {
     $name = mysqli_real_escape_string($con, $_POST['name']);
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-    $phone = mysqli_real_escape_string($con, $_POST['phone']);
-    $course = mysqli_real_escape_string($con, $_POST['course']);
+    $item = mysqli_real_escape_string($con, $_POST['item']);
+    $price = mysqli_real_escape_string($con, $_POST['price']);
+    $contact = mysqli_real_escape_string($con, $_POST['contact']);
 
-    $query = "INSERT INTO students (name,email,phone,course) VALUES ('$name','$email','$phone','$course')";
+    $query = "INSERT INTO sales (cusn,item,price,contact) VALUES ('$name','$item','$price','$contact')";
 
     $query_run = mysqli_query($con, $query);
     if($query_run)
     {
-        $_SESSION['message'] = "Student Created Successfully";
-        header("Location: student-create.php");
+        $_SESSION['message'] = "Sales Inserted Successfully";
+        header("Location: sales-create.php");
         exit(0);
     }
     else
     {
-        $_SESSION['message'] = "Student Not Created";
-        header("Location: student-create.php");
+        $_SESSION['message'] = "Sales Not Inserted";
+        header("Location: sales-create.php");
         exit(0);
     }
 }
+
+    $tid=$_GET['tid'];
+    $query="UPDATE  sales SET status='paid' WHERE id='$tid'";
+    $query_ins=mysqli_query($con,$query);
+    if(!$query_ins){
+        echo mysqli_error($conn);
+    }
+    else{
+        header("Location: index.php");
+    }
 
 ?>
