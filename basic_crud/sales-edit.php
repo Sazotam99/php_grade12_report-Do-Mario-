@@ -25,7 +25,7 @@ require 'dbcon.php';
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>sales Edit 
+                        <h4>Sales Update 
                             <a href="index.php" class="btn btn-danger float-end">BACK</a>
                         </h4>
                     </div>
@@ -46,19 +46,19 @@ require 'dbcon.php';
                                     <input type="hidden" name="sales_id" value="<?= $sales['id']; ?>">
 
                                     <div class="mb-3">
-                                        <label>Sales Name</label>
+                                        <label>Customer's Name</label>
                                         <input type="text" name="name" value="<?=$sales['cusn'];?>" class="form-control">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Sales Email</label>
+                                        <label>Item</label>
                                         <input type="text" name="item" value="<?=$sales['item'];?>" class="form-control">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Sales Phone</label>
+                                        <label>Price</label>
                                         <input type="text" name="price" value="<?=$sales['price'];?>" class="form-control">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Sales Course</label>
+                                        <label>Contact</label>
                                         <input type="text" name="contact" value="<?=$sales['contact'];?>" class="form-control">
                                     </div>
                                     <div class="mb-3">
